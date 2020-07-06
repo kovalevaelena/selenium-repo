@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -26,11 +27,16 @@ public class mytest {
     @Test
     public void MyTest(){
 
-        driver.findElement(By.name("username")).sendKeys("admin");
-        driver.findElement(By.name("password")).sendKeys("admin");
-        driver.findElement(By.name("login")).click();
-        wait.withMessage(" You are now logged in as admin");
-    }
+        /*добрый день, Алексей! подскажите, пожалуйста, программа ругается на 33 строку - по могу понять в чем дело. Заранее спасибо за помощь.*/
+
+        WebElement leftmenu =  driver.findElement(By.cssSelector("ul.list-vertical"));
+        point = leftmenu.findElements(By.tagName("a"));
+        for (int i = 0; i < point; i++) {
+            driver.findElement(By.xpath("./a[i]")).click();
+            wait(1000);
+            driver.findElement(By.tagName("h1"));
+        }
+        }
 
     @After
     public void stop(){
